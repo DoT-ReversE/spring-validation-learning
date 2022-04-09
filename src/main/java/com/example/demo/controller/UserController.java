@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.dto.UserRequest;
 import com.example.demo.entity.User;
+import com.example.demo.exception.UserNotFoundException;
 import com.example.demo.service.UserService;
 
 @RestController
@@ -36,7 +37,7 @@ public class UserController {
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<User> getAllUsers(@PathVariable int id) {
-		return ResponseEntity.ok(service.getUser(id).get());
+	public ResponseEntity<User> getAllUsers(@PathVariable int id) throws UserNotFoundException {
+		return ResponseEntity.ok(service.getUser(id));
 	}
 }

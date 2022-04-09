@@ -25,7 +25,6 @@ public class UserRequest {
 	private String email;
 	
 	@NotNull
-	@Pattern(regexp = "&\\d{10}$", message = "mobile format invalid")
 	private String mobile;
 	
 	private String gender;
